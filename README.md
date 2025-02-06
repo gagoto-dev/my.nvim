@@ -1,6 +1,4 @@
-# my.nvim
-## OS Independent
-Install [packer](https://github.com/wbthomason/packer.nvim)
+# my.nvim Configuration!
 
 ## Windows:
 ``
