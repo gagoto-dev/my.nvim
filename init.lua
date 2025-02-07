@@ -1,2 +1,3 @@
 require 'gagoto'
-print("hola mibro la que se viene")
+
+vim.cmd("set relativenumber")

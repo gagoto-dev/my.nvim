@@ -22,17 +22,24 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-local plugins = { 
+local plugins = {
 	{
-		'nvim-telescope/telescope.nvim', tag = '0.1.8',
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.8',
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
-	{ "rose-pine/neovim", name = "rose-pine" },
+	{
+		"rose-pine/neovim",
+		name = "rose-pine"
+	},
 	{
 		"olimorris/onedarkpro.nvim",
 		priority = 1000, -- Ensure it loads first
 	},
-	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate"
+	},
 	'nvim-treesitter/playground',
 	"nvim-lua/plenary.nvim", -- don't forget to add this one if you don't have it yet!
 	{
@@ -41,7 +48,25 @@ local plugins = {
 		dependencies = { "nvim-lua/plenary.nvim" }
 	},
 	"mbbill/undotree",
-	"tpope/vim-fugitive"
+	"tpope/vim-fugitive",
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			"stevearc/conform.nvim",
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"hrsh7th/nvim-cmp",
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+			"j-hui/fidget.nvim",
+			'jose-elias-alvarez/null-ls.nvim',
+			'MunifTanjim/prettier.nvim'
+		}
+	}
 }
 
 local opts = {}
