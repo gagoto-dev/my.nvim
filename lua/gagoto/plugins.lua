@@ -23,11 +23,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 local plugins = {
-	{
-		'nvim-telescope/telescope.nvim',
-		tag = '0.1.8',
-		dependencies = { 'nvim-lua/plenary.nvim' }
-	},
+	'nvim-telescope/telescope.nvim',
+	'nvim-lua/plenary.nvim',
 	{
 		"rose-pine/neovim",
 		name = "rose-pine"
@@ -41,7 +38,7 @@ local plugins = {
 		build = ":TSUpdate"
 	},
 	'nvim-treesitter/playground',
-	"nvim-lua/plenary.nvim", -- don't forget to add this one if you don't have it yet!
+	"nvim-lua/plenary.nvim",
 	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
@@ -66,6 +63,17 @@ local plugins = {
 			'jose-elias-alvarez/null-ls.nvim',
 			'MunifTanjim/prettier.nvim'
 		}
+	},
+	{
+		"luckasRanarison/tailwind-tools.nvim",
+		name = "tailwind-tools",
+		build = ":UpdateRemotePlugins",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-telescope/telescope.nvim", -- optional
+			"neovim/nvim-lspconfig", -- optional
+		},
+		opts = {} -- your configuration
 	}
 }
 
