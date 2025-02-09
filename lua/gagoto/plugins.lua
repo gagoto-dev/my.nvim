@@ -107,7 +107,8 @@ local plugins = {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         opts = {},
-    }
+    },
+    'numToStr/Comment.nvim','numToStr/Comment.nvim'
 }
 
 local opts = {}
