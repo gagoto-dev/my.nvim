@@ -14,7 +14,8 @@ require'nvim-treesitter.configs'.setup {
 	  "markdown_inline",
 	  "astro",
 	  "bash",
-	  "css"
+	  "css",
+      "go"
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)

@@ -103,6 +103,11 @@ local plugins = {
             },
         },
     },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {},
+    }
 }
 
 local opts = {}
