@@ -23,8 +23,14 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 local plugins = {
-	'nvim-telescope/telescope.nvim',
-	'nvim-lua/plenary.nvim',
+    {
+        'nvim-telescope/telescope.nvim',
+        'nvim-lua/plenary.nvim',
+        {
+            'nvim-tree/nvim-web-devicons',
+            enabled = vim.g.have_nerd_font
+        },
+    },
 	{
 		"rose-pine/neovim",
 		name = "rose-pine"
@@ -82,8 +88,21 @@ local plugins = {
 			require("tailwindcss-colorizer-cmp").setup({
 				color_square_width = 2,
 			})
-		end
-	}
+        end
+    },
+    -- See `:help gitsigns` to understand what the configuration keys do
+    { -- Adds git related signs to the gutter, as well as utilities for managing changes
+        'lewis6991/gitsigns.nvim',
+        opts = {
+            signs = {
+                add = { text = '+' },
+                change = { text = '~' },
+                delete = { text = '_' },
+                topdelete = { text = '‾' },
+                changedelete = { text = '~' },
+            },
+        },
+    },
 }
 
 local opts = {}
