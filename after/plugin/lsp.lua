@@ -78,7 +78,7 @@ require("mason-lspconfig").setup({
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers["signature_help"], {
 	border = "single",
-	close_events = { "CursorMoved", "BufHidden", "InsertCharPre" },
+	close_events = { "CursorMoved", "BufHidden" },
 })
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
