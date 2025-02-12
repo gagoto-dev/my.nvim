@@ -17,7 +17,7 @@ require("mason-lspconfig").setup({
 		"cssls",
 		"jsonls",
 		"eslint", -- JavaScript
-		"intelephense",
+		"phpactor",
 		"html",
 	},
 	automatic_installation = true,
@@ -65,9 +65,9 @@ require("mason-lspconfig").setup({
 				filetypes = { "astro" },
 			})
 		end,
-		["intelephense"] = function()
+		["phpactor"] = function()
 			local lspconfig = require("lspconfig")
-			lspconfig.intelephense.setup({
+			lspconfig.phpactor.setup({
 				root_dir = function()
 					return vim.loop.cwd()
 				end,
