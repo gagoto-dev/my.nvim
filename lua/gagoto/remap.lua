@@ -55,3 +55,14 @@ vim.keymap.set("i", "kk", "<Esc>")
 vim.keymap.set("i", "<C-k>", function()
 	vim.lsp.buf.signature_help()
 end)
+
+-- Surrounds
+vim.keymap.set("i", '"', '""<Left>')
+vim.keymap.set("i", "'", "''<Left>")
+vim.keymap.set("i", "(", "()<Left>")
+vim.keymap.set("i", "[", "[]<Left>")
+vim.keymap.set("i", "{", "{}<Left>")
+
+vim.keymap.set("v", '"', ':s/\\<<C-r><C-w>\\>/"<C-r><C-w>"/g<Enter>')
+vim.keymap.set("v", "'", ":s/\\<<C-r><C-w>\\>/'<C-r><C-w>'/g<Enter>")
+vim.keymap.set("v", "(", ":s/\\<<C-r><C-w>\\>/(<C-r><C-w>)/g<Enter>")
