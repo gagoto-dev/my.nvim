@@ -1,9 +1,10 @@
 # my.nvim Configuration!
 
 ## Ubuntu:
-``
-$ sudo apt install ripgrep lua luarocks git
-``
+```
+$ sudo apt update
+$ sudo apt install gcc ripgrep lua5.4 luarocks git
+```
 
 ## Windows:
 ``
