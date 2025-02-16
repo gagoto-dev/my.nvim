@@ -1,17 +1,17 @@
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		vim.api.nvim_echo({
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "WarningMsg" },
+			{ "\nPress any key to exit..." },
+		}, true, {})
+		vim.fn.getchar()
+		os.exit(1)
+	end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -23,17 +23,17 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 local plugins = {
-    {
-        'nvim-telescope/telescope.nvim',
-        'nvim-lua/plenary.nvim',
-        {
-            'nvim-tree/nvim-web-devicons',
-            enabled = vim.g.have_nerd_font
-        },
-    },
+	{
+		"nvim-telescope/telescope.nvim",
+		"nvim-lua/plenary.nvim",
+		{
+			"nvim-tree/nvim-web-devicons",
+			enabled = vim.g.have_nerd_font,
+		},
+	},
 	{
 		"rose-pine/neovim",
-		name = "rose-pine"
+		name = "rose-pine",
 	},
 	{
 		"olimorris/onedarkpro.nvim",
@@ -41,14 +41,14 @@ local plugins = {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate"
+		build = ":TSUpdate",
 	},
-	'nvim-treesitter/playground',
+	"nvim-treesitter/playground",
 	"nvim-lua/plenary.nvim",
 	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
-		dependencies = { "nvim-lua/plenary.nvim" }
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	"mbbill/undotree",
 	"tpope/vim-fugitive",
@@ -58,7 +58,7 @@ local plugins = {
 			"stevearc/conform.nvim",
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-            'jay-babu/mason-null-ls.nvim',
+			"jay-babu/mason-null-ls.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
@@ -67,9 +67,9 @@ local plugins = {
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 			"j-hui/fidget.nvim",
-			'jose-elias-alvarez/null-ls.nvim',
-			'MunifTanjim/prettier.nvim'
-		}
+			"jose-elias-alvarez/null-ls.nvim",
+			"MunifTanjim/prettier.nvim",
+		},
 	},
 	{
 		"luckasRanarison/tailwind-tools.nvim",
@@ -80,7 +80,7 @@ local plugins = {
 			"nvim-telescope/telescope.nvim", -- optional
 			"neovim/nvim-lspconfig", -- optional
 		},
-		opts = {} -- your configuration
+		opts = {}, -- your configuration
 	},
 	{
 		"roobert/tailwindcss-colorizer-cmp.nvim",
@@ -89,27 +89,28 @@ local plugins = {
 			require("tailwindcss-colorizer-cmp").setup({
 				color_square_width = 2,
 			})
-        end
-    },
-    -- See `:help gitsigns` to understand what the configuration keys do
-    { -- Adds git related signs to the gutter, as well as utilities for managing changes
-        'lewis6991/gitsigns.nvim',
-        opts = {
-            signs = {
-                add = { text = '+' },
-                change = { text = '~' },
-                delete = { text = '_' },
-                topdelete = { text = '‾' },
-                changedelete = { text = '~' },
-            },
-        },
-    },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        opts = {},
-    },
-    'numToStr/Comment.nvim','numToStr/Comment.nvim'
+		end,
+	},
+	-- See `:help gitsigns` to understand what the configuration keys do
+	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
+		"lewis6991/gitsigns.nvim",
+		opts = {
+			signs = {
+				add = { text = "+" },
+				change = { text = "~" },
+				delete = { text = "_" },
+				topdelete = { text = "‾" },
+				changedelete = { text = "~" },
+			},
+		},
+	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
+	},
+	"numToStr/Comment.nvim",
+	"sbdchd/neoformat",
 }
 
 local opts = {}
