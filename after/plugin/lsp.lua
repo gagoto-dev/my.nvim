@@ -19,6 +19,7 @@ require("mason-lspconfig").setup({
 		"eslint", -- JavaScript
 		"phpactor",
 		"html",
+		"gopls",
 	},
 	automatic_installation = true,
 	handlers = {
@@ -71,6 +72,14 @@ require("mason-lspconfig").setup({
 				root_dir = function()
 					return vim.loop.cwd()
 				end,
+			})
+		end,
+		["gopls"] = function()
+			local lspconfig = require("lspconfig")
+
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+				filetypes = { "gopls" },
 			})
 		end,
 	},
