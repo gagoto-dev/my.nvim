@@ -79,7 +79,7 @@ require("mason-lspconfig").setup({
 
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
-				filetypes = { "gopls" },
+				filetypes = { "go" },
 			})
 		end,
 	},
