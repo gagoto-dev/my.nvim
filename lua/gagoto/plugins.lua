@@ -111,6 +111,7 @@ local plugins = {
 	},
 	"numToStr/Comment.nvim",
 	"sbdchd/neoformat",
+	"ThePrimeagen/vim-be-good",
 }
 
 local opts = {}
