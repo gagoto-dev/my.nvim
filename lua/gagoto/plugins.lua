@@ -37,8 +37,9 @@ local plugins = {
 	},
 	{
 		"olimorris/onedarkpro.nvim",
-		priority = 1000, -- Ensure it loads first
+		priority = 999, -- Ensure it loads first
 	},
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
