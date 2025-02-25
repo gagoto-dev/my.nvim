@@ -18,3 +18,5 @@ require("lazy").setup({
 	spec = "gagoto.lazy",
 	change_detection = { notify = false },
 })
+
+vim.g.lazyvim_prettier_needs_config = false

@@ -11,7 +11,6 @@ return {
 					"html",
 					"typescript",
 					"lua",
-					"vim",
 					"vimdoc",
 					"query",
 					"markdown",

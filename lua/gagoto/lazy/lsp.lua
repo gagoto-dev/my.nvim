@@ -15,6 +15,7 @@ return {
 		"j-hui/fidget.nvim",
 		"jose-elias-alvarez/null-ls.nvim",
 		"MunifTanjim/prettier.nvim",
+		"windwp/nvim-autopairs",
 	},
 	config = function()
 		require("conform").setup({
@@ -22,6 +23,14 @@ return {
 				lua = { "stylua" },
 				go = { "goimports", "gofmt" },
 				php = { "phpactor" },
+				astro = { "prettier" },
+				html = { "prettier" },
+				js = { "prettier" },
+				ts = { "prettier" },
+				jsx = { "prettier" },
+				tsx = { "prettier" },
+				mjs = { "prettier" },
+				json = { "prettier" },
 			},
 			format_on_save = {
 				-- These options will be passed to conform.format()
@@ -35,7 +44,10 @@ return {
 			-- Conform will notify you when no formatters are available for the buffer
 			notify_no_formatters = true,
 		})
+		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 		local cmp = require("cmp")
+		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
 		local cmp_lsp = require("cmp_nvim_lsp")
 		local capabilities = vim.tbl_deep_extend(
 			"force",
@@ -45,7 +57,11 @@ return {
 		)
 
 		require("fidget").setup({})
-		require("mason").setup()
+		require("mason").setup({
+			ensure_installed = {
+				"prettier",
+			},
+		})
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
@@ -86,6 +102,14 @@ return {
 					local lspconfig = require("lspconfig")
 
 					lspconfig.emmet_ls.setup({
+						capabilities = capabilities,
+						filetypes = { "astro", "html", "jsx", "tsx" },
+					})
+				end,
+				["tailwindcss"] = function()
+					local lspconfig = require("lspconfig")
+
+					lspconfig.tailwindcss.setup({
 						capabilities = capabilities,
 						filetypes = { "astro", "html", "jsx", "tsx" },
 					})
