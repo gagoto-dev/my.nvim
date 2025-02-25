@@ -56,8 +56,10 @@ vim.keymap.set("i", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 -- vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Para salir del insert mode
-vim.keymap.set("i", "jj", "<Esc>")
-vim.keymap.set("i", "kk", "<Esc>")
+vim.keymap.set("i", "hh", "<Esc>h")
+vim.keymap.set("i", "jj", "<Esc>j")
+vim.keymap.set("i", "kk", "<Esc>k")
+vim.keymap.set("i", "ll", "<Esc>l")
 
 vim.keymap.set("i", "<C-k>", function()
 	vim.lsp.buf.signature_help()
