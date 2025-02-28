@@ -31,6 +31,7 @@ return {
 				tsx = { "prettier" },
 				mjs = { "prettier" },
 				json = { "prettier" },
+				sql = { "sqlfmt" },
 			},
 			format_on_save = {
 				-- These options will be passed to conform.format()

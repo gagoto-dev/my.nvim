@@ -64,3 +64,7 @@ vim.keymap.set("i", "lll", "<Esc>l")
 vim.keymap.set("i", "<C-k>", function()
 	vim.lsp.buf.signature_help()
 end)
+
+vim.keymap.set("n", "<leader>qf", function()
+	vim.diagnostic.setqflist()
+end)
