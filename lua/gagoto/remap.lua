@@ -33,7 +33,8 @@ vim.keymap.set("n", "<leader>S", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left>
 vim.keymap.set("n", "<leader>s", ":s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
 -- Hace el fichero que editas ejecutable
---vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader><S-x>", "<cmd>!chmod -x %<CR>", { silent = true })
 
 -- TIP: Disable arrow keys in normal mode
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
@@ -62,9 +63,9 @@ vim.keymap.set("i", "kk", "<Esc>k")
 vim.keymap.set("i", "lll", "<Esc>l")
 
 vim.keymap.set("i", "<C-k>", function()
-	vim.lsp.buf.signature_help()
+    vim.lsp.buf.signature_help()
 end)
 
 vim.keymap.set("n", "<leader>qf", function()
-	vim.diagnostic.setqflist()
+    vim.diagnostic.setqflist()
 end)
