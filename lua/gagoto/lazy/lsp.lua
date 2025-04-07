@@ -22,7 +22,7 @@ return {
             formatters_by_ft = {
                 lua = { "stylua" },
                 go = { "goimports", "gofmt" },
-                php = { "pretty-php" },
+                php = { "php-cs-fixer" },
                 astro = { "prettier" },
                 html = { "prettier" },
                 js = { "prettier" },
@@ -32,6 +32,7 @@ return {
                 mjs = { "prettier" },
                 json = { "prettier" },
                 sql = { "sql-formatter" },
+                py = { "ast-grep" },
             },
             format_on_save = {
                 -- These options will be passed to conform.format()
@@ -126,9 +127,17 @@ return {
                 ["phpactor"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.phpactor.setup({
-                        root_dir = function()
-                            return vim.loop.cwd()
+                        root_dir = function(pattern)
+                            local cwd = vim.loop.cwd()
+                            local util = require("lspconfig.util")
+                            local root =
+                                util.root_pattern("composer.json", ".git", ".phpactor.json", ".phpactor.yml")(pattern)
+
+                            -- prefer cwd if root is a descendant
+                            return util.path.is_descendant(cwd, root) and cwd or root
                         end,
+                        capabilities = capabilities,
+                        filetypes = { "php" },
                     })
                 end,
                 ["gopls"] = function()

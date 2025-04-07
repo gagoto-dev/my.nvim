@@ -24,7 +24,6 @@ return {
         vim.keymap.set("n", "<leader><C-n>", function() harpoon:list():replace_at(3) end)
         vim.keymap.set("n", "<leader><C-s>", function() harpoon:list():replace_at(4) end)
 
-        vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
-        vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+        vim.keymap.set("n", "<C-Tab>", function() harpoon:list():prev() end)
     end,
 }
