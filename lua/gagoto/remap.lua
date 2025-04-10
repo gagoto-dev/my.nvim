@@ -1,7 +1,5 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Mover línea visual abajo (J) y arriba (K)
@@ -63,9 +61,9 @@ vim.keymap.set("i", "kk", "<Esc>k")
 vim.keymap.set("i", "lll", "<Esc>l")
 
 vim.keymap.set("i", "<C-k>", function()
-    vim.lsp.buf.signature_help()
+	vim.lsp.buf.signature_help()
 end)
 
 vim.keymap.set("n", "<leader>qf", function()
-    vim.diagnostic.setqflist()
+	vim.diagnostic.setqflist()
 end)
