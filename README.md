@@ -1,5 +1,5 @@
 # my.nvim Configuration!
-
+ 
 ## Ubuntu:
 ```
 $ sudo apt update
