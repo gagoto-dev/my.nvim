@@ -5,7 +5,7 @@ opt.nu = true
 opt.relativenumber = true
 
 vim.g.have_nerd_font = true
-vim.g.netrw_liststyle = 3
+vim.g.netrw_liststyle = 0
 
 opt.tabstop = 4
 opt.softtabstop = 4

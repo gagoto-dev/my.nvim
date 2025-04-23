@@ -2,6 +2,8 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+vim.keymap.set("n", "<leader>pv", "<cmd>Ex<CR>", { desc = "Go to Explorer" })
+
 -- Mover línea visual abajo (J) y arriba (K)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -61,9 +63,9 @@ vim.keymap.set("i", "kk", "<Esc>k")
 vim.keymap.set("i", "lll", "<Esc>l")
 
 vim.keymap.set("i", "<C-k>", function()
-	vim.lsp.buf.signature_help()
+    vim.lsp.buf.signature_help()
 end)
 
 vim.keymap.set("n", "<leader>qf", function()
-	vim.diagnostic.setqflist()
+    vim.diagnostic.setqflist()
 end)
