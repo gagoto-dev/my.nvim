@@ -22,7 +22,7 @@ return {
             formatters_by_ft = {
                 lua = { "stylua" },
                 go = { "goimports", "gofmt" },
-                php = { "php-cs-fixer" },
+                php = { "php" },
                 astro = { "prettier" },
                 html = { "prettier" },
                 js = { "prettier" },
@@ -45,6 +45,13 @@ return {
             notify_on_error = true,
             -- Conform will notify you when no formatters are available for the buffer
             notify_no_formatters = true,
+            formatters = {
+                ["php"] = {
+                    command = "/usr/bin/php8.3",
+                    args = { "/home/gaspar/.local/share/nvim/mason/bin/php-cs-fixer", "fix", "--using-cache=no", "--stdin", "--stdin-path", "$FILENAME" },
+                    stdin = false,
+                },
+            }
         })
         local cmp_autopairs = require("nvim-autopairs.completion.cmp")
         local cmp = require("cmp")

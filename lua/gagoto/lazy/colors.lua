@@ -43,6 +43,27 @@ return {
                     sidebars = "dark", -- style for sidebars, see below
                     floats = "dark",   -- style for floating windows
                 },
+                on_highlights = function(hl, colors)
+                    hl.LineNrAbove = {
+                        fg = "#666666",
+                        bold = true
+                    }
+
+                    hl.LineNrBelow = {
+                        fg = "#777777",
+                        bold = true
+                    }
+
+                    hl.CursorLineNr = {
+                        fg = colors.orange,
+                        bold = true
+                    }
+
+                    hl.LineNr = {
+                        fg = colors.orange,
+                        bold = true
+                    }
+                end,
             })
             ColorMyPencils("tokyonight-moon")
         end,
