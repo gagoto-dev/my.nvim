@@ -12,6 +12,8 @@ opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 
+opt.mousemodel = "extend"
+
 opt.smartindent = true
 
 -- Acceso al undotree para guardar datos

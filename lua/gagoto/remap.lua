@@ -4,6 +4,9 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set("n", "<leader>pv", "<cmd>Ex<CR>", { desc = "Go to Explorer" })
 
+vim.keymap.set("n", "ñ", "o<Esc>", { desc = "Insert line below and stay in normal mode" })
+vim.keymap.set("n", "Ñ", "O<Esc>", { desc = "Insert line above and stay in normal mode" })
+
 -- Mover línea visual abajo (J) y arriba (K)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

@@ -80,7 +80,6 @@ return {
                 "cssls",
                 "jsonls",
                 "eslint", -- JavaScript
-                "phpactor",
                 "html",
                 "gopls",
                 "emmet_ls",
@@ -131,18 +130,9 @@ return {
                         filetypes = { "astro" },
                     })
                 end,
-                ["phpactor"] = function()
+                ["intelephense"] = function()
                     local lspconfig = require("lspconfig")
-                    lspconfig.phpactor.setup({
-                        root_dir = function(pattern)
-                            local cwd = vim.loop.cwd()
-                            local util = require("lspconfig.util")
-                            local root =
-                                util.root_pattern("composer.json", ".git", ".phpactor.json", ".phpactor.yml")(pattern)
-
-                            -- prefer cwd if root is a descendant
-                            return util.path.is_descendant(cwd, root) and cwd or root
-                        end,
+                    lspconfig.intelephense.setup({
                         capabilities = capabilities,
                         filetypes = { "php" },
                     })
