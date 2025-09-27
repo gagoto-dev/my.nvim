@@ -16,6 +16,7 @@ return {
         "jose-elias-alvarez/null-ls.nvim",
         "MunifTanjim/prettier.nvim",
         "windwp/nvim-autopairs",
+        "b0o/schemastore.nvim",
     },
     config = function()
         require("conform").setup({
@@ -33,6 +34,7 @@ return {
                 json = { "prettier" },
                 sql = { "sql-formatter" },
                 py = { "ast-grep" },
+                yaml = { "prettier" }
             },
             format_on_save = {
                 -- These options will be passed to conform.format()
@@ -83,15 +85,11 @@ return {
                 "html",
                 "gopls",
                 "emmet_ls",
+                "yamlls",
+                "intelephense",
             },
             automatic_installation = true,
             handlers = {
-                function(server_name) -- default handler (optional)
-                    require("lspconfig")[server_name].setup({
-                        capabilities = capabilities,
-                    })
-                end,
-
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup({
@@ -130,19 +128,37 @@ return {
                         filetypes = { "astro" },
                     })
                 end,
-                ["intelephense"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.intelephense.setup({
-                        capabilities = capabilities,
-                        filetypes = { "php" },
-                    })
-                end,
                 ["gopls"] = function()
                     local lspconfig = require("lspconfig")
 
                     lspconfig.gopls.setup({
                         capabilities = capabilities,
                         filetypes = { "go" },
+                    })
+                end,
+                ["yamlls"] = function()
+                    local lspconfig = require("lspconfig")
+
+                    lspconfig.yamlls.setup({
+                        capabilities = capabilities,
+                        filetypes = { "yaml" },
+                        settings = {
+                            yaml = {
+                                schemaStore = {
+                                    -- You must disable built-in schemaStore support if you want to use
+                                    -- this plugin and its advanced options like `ignore`.
+                                    enable = false,
+                                    -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+                                    url = "",
+                                },
+                                schemas = require('schemastore').yaml.schemas(),
+                            },
+                        },
+                    })
+                end,
+                function(server_name) -- default handler (optional)
+                    require("lspconfig")[server_name].setup({
+                        capabilities = capabilities,
                     })
                 end,
             },
