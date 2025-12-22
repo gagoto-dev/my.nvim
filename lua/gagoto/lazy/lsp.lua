@@ -2,8 +2,8 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"stevearc/conform.nvim",
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		"jay-babu/mason-null-ls.nvim",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
@@ -96,6 +96,7 @@ return {
 				"intelephense",
 			},
 			automatic_installation = true,
+			automatic_enable = true,
 			handlers = {
 				["lua_ls"] = function()
 					local lspconfig = vim.lsp.config
