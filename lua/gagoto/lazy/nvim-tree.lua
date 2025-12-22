@@ -62,6 +62,8 @@ return {
 			{ desc = "Toggle file explorer on current file" }
 		) -- toggle file explorer on current file
 		vim.keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
-		vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
+		vim.keymap.set("n", "<leader>eR", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
+		vim.keymap.set("n", "<leader>erl", "<cmd>NvimTreeResize +20<CR>", { desc = "Augment file explorer size" }) -- resize file explorer
+		vim.keymap.set("n", "<leader>erh", "<cmd>NvimTreeResize -20<CR>", { desc = "Reduce file explorer size" }) -- resize file explorer
 	end,
 }
